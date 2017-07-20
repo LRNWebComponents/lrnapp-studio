@@ -1,0 +1,78 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/iron-iconset-svg/iron-iconset-svg.html">
+<link rel="import" href="../../bower_components/iron-iconset/iron-iconset.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../lrnapp-studio-submissions-list/lrnapp-studio-submissions-list.html">
+
+</head><body><dom-module id="lrnapp-studio-displayboard">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .center {
+        text-align: center;
+      }
+      @media (min-width:1200px) {
+        .paper-material-padding-med {
+          padding:3.5rem;
+        }
+      }
+      @media (min-width:56rem) {
+        .lrnapp-studio-displayboard-wrapper {
+          max-width: 54rem;
+          margin: 2rem auto;
+        }
+      }
+      @media (max-width:410px) {
+        .lrnapp-studio-displayboard-wrapper {
+          min-width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .paper-material-0[elevation="3"] {
+            box-shadow: none;
+        }
+      }
+      </style>
+
+    <paper-material elevation="3" class="paper-material-margin-med lrnapp-studio-displayboard-wrapper">
+      <div class="paper-material-padding-med">
+      <paper-button class="black"><iron-icon icon="clear"></iron-icon> Close</paper-button>
+
+        <h1 class="center">[[title]]</h1>
+        <p class="center">By [[author]]</p>
+      </div>
+      <lrnapp-studio-submissions-list></lrnapp-studio-submissions-list>
+      <div class="divider"></div>
+      <!-- <div class="paper-material-padding-med">
+          <paper-button class="black"><iron-icon icon="clear"></iron-icon> Close</paper-button>
+      </div> -->
+    </paper-material>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'lrnapp-studio-displayboard',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'Project 1 Title',
+        },
+        author: {
+          type: String,
+          value: 'Bill Billerson',
+        }
+      },
+
+    });
+  </script>
+</dom-module>
+</body></html>

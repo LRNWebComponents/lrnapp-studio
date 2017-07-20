@@ -1,0 +1,63 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/scary-gallery/scary-gallery.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../lrnapp-studio-displayboard/lrnapp-studio-displayboard.html">
+
+<dom-module id="lrnapp-studio-projectboard">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/projectboard/:projectId"
+        data="{{routeData}}"
+        tail="{{subroute}}"
+        active="{{active}}">
+    </app-route>
+
+THIS IS SUPPOSED TO BE THE STUDIO. CLICK ON ONE
+     <scary-gallery min-height="100">
+            <scary-image class="projectboard-item" src="https://unsplash.it/300"></scary-image>
+            <scary-image class="projectboard-item" src="https://unsplash.it/300"></scary-image>
+            <scary-image class="projectboard-item" src="https://unsplash.it/300"></scary-image>
+            <scary-image class="projectboard-item" src="https://unsplash.it/300"></scary-image>
+            <scary-image class="projectboard-item" src="https://unsplash.it/300"></scary-image>
+            <scary-image class="projectboard-item" src="https://unsplash.it/300"></scary-image>
+        </scary-gallery>
+
+    <template is="dom-if" if="[[active]]">
+
+      <lrnapp-studio-displayboard id="[[routeData.projectId]]"></lrnapp-studio-displayboard>
+
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'lrnapp-studio-projectboard',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'lrnapp-studio-app',
+        },
+        route: {
+          type: Object,
+        }
+      },
+      ready: function() {
+      	this.$$('.projectboard-item').addEventListener('click', function(e) {
+      		// you find the id of the project board item here
+      		window.location.href = '/projectboard/1';
+      	})
+      }
+    });
+  </script>
+</dom-module>

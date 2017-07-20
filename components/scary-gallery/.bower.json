@@ -1,0 +1,24 @@
+{
+  "name": "scary-gallery",
+  "version": "0.0.1",
+  "main": "scary-gallery.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.7.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/Scarygami/scary-gallery",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "717f2a0d4dd523722dcf8aa32276d05936c50772"
+  },
+  "_source": "https://github.com/Scarygami/scary-gallery.git",
+  "_target": "^0.0.1",
+  "_originalSource": "Scarygami/scary-gallery"
+}

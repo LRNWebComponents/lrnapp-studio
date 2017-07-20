@@ -1,0 +1,154 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../materializecss-styles/colors.html">
+<link rel="import" href="../paper-tooltip/paper-tooltip.html">
+
+<!--
+`lrnsys-button`
+A LRN element
+
+@demo demo/index.html
+-->
+
+<dom-module id="lrnsys-button">
+  <template>
+    <style include="materializecss-styles-colors">
+      :host {
+        display: block;
+      }
+      a {
+        text-decoration: none;
+      }
+      paper-button iron-icon {
+        height: 3em;
+        margin: 0 .75em;
+      }
+      paper-button {
+        transition: .3s;
+        padding: 0;
+        margin: 0;
+        min-width: .1em;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        text-transform: unset;
+        border-radius: unset;
+      }
+    </style>
+    <a id="lrnsys-button-link" href$="[[href]]" tabindex="-1" data-prefetch-hover$="[[prefetch]]">
+      <paper-button raised="[[raised]]" class$="[[class]] [[color]] [[textColor]]">
+        <template is="dom-if" if="[[icon]]">
+          <iron-icon icon$="[[icon]]"></iron-icon>
+        </template>
+        <span class="label">
+          [[label]]
+          <content></content>
+        </span>
+      </paper-button>
+    </a>
+    <template is="dom-if" if="{{alt}}">
+      <paper-tooltip for="lrnsys-button-link" animation-delay="0">{{alt}}</paper-tooltip>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: 'lrnsys-button',
+      /**
+       * Detect when hovering on our off the element and provide color switching
+       */
+      listeners: {
+        'mouseover': 'hoverOn',
+        'mouseout': 'hoverOff',
+      },
+      properties: {
+        /**
+         * Standard href pass down
+         */
+        href: {
+          type: String,
+          value: '#',
+        },
+        /**
+         * If the button should be visually lifted off the UI.
+         */
+        raised: {
+          type: Boolean,
+        },
+        /**
+         * Label to place in the text area
+         */
+        label: {
+          type: String,
+        },
+        /**
+         * iron-icon to use (with iconset if needed)
+         */
+        icon: {
+          type: String,
+        },
+        /**
+         * Classes to add / subtract based on the item being hovered
+         */
+        hoverClass: {
+          type: String,
+        },
+        /**
+         * materializeCSS color class
+         */
+        color: {
+          type: String,
+        },
+        /**
+         * materializeCSS color class for text
+         */
+        textColor: {
+          type: String,
+        },
+        /**
+         * Allow for prefetch data on hover
+         */
+        prefetch: {
+          type: String,
+        },
+        /**
+         * Alt via tooltip.
+         */
+        alt: {
+          type: String,
+        }
+      },
+      /**
+       * Handle a mouse on event and add the hoverclasses
+       * to the classList array for paper-button.
+       */
+      hoverOn: function(e) {
+        let root = this;
+        if (typeof root.hoverClass !== typeof undefined) {
+          var classes = root.hoverClass.split(' ');
+          classes.forEach(function(item, index) {
+            if (item != '') {
+              root.$$('paper-button').classList.add(item);
+            }
+          });
+        }
+      },
+      /**
+       * Handle a mouse out event and remove the hoverclasses
+       * from the classList array for paper-button.
+       */
+      hoverOff: function(e) {
+        let root = this;
+        if (typeof root.hoverClass !== typeof undefined) {
+          var classes = root.hoverClass.split(' ');
+          classes.forEach(function(item, index) {
+            if (item != '') {
+              root.$$('paper-button').classList.remove(item);
+            }
+          });
+        }
+      },
+    });
+  </script>
+</dom-module>

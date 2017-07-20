@@ -1,0 +1,6 @@
+{
+  "name": "studio-app",
+  "short_name": "studio-app",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../lrnapp-studio-projectboard/lrnapp-studio-projectboard.html">
+<link rel="import" href="../lrnapp-studio-displayboard/lrnapp-studio-displayboard.html">
+
+<dom-module id="lrnapp-studio-app">
+  <template>
+
+    <style >
+      :host {
+        display: block;
+      }
+    </style>
+     
+    <!-- THIS IS FAKE ROUTING: toggle commenting below -->
+     <lrnapp-studio-projectboard></lrnapp-studio-projectboard>
+    <!-- <lrnapp-studio-displayboard></lrnapp-studio-displayboard> -->
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'lrnapp-studio-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'lrnapp-studio-app',
+        }
+      },
+    });
+  </script>
+</dom-module>
